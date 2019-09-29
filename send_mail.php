@@ -48,20 +48,6 @@ function isInjected($str) {
 	}
 }
 
-
-// If the form fields are empty, redirect to the error page.
-if (empty($first_name) || empty($email_address)) {
-header( "Location: $error_page" );
-}
-
-/* 
-If email injection is detected, redirect to the error page.
-If you add a form field, you should add it here.
-*/
-elseif ( isInjected($email_address) || isInjected($first_name)  || isInjected($comments) ) {
-header( "Location: $error_page" );
-}
-
 // If we passed all previous tests, send the email then redirect to the thank you page.
 else {
 
